@@ -1,0 +1,81 @@
+<!doctype html>
+
+<html>
+  <head>
+	<title>Photo Gallery</title>
+	<style>
+		.gallery {
+            
+			display: flex; 
+            
+			flex-wrap: wrap;
+            
+			justify-content: space-between;
+            
+			align-items: center;
+            
+			margin: 10px;
+		}
+
+
+       
+		.gallery img {
+           
+			width: 30%;
+          
+			margin-bottom: 20px;
+            
+		}
+	</style>
+</head>
+<body bgcolor="270319">
+
+	<h1 style="text-align:center; color:white;">Fotoğraf Galerisi</h1>
+
+    <!--div-->
+	<div class="gallery"></div>
+
+    <!--Js-->
+	<script>
+	
+		const gallery = document.querySelector('.gallery');
+
+		
+		const photoURL = 'https://source.unsplash.com/random/';
+
+		const columnCount = 3;
+		const rowCount = 5;
+
+
+		function addPhotos() {
+			
+			gallery.innerHTML = '';
+
+			const totalPhotos = columnCount * rowCount;
+			let photoIndex = 1;
+
+		
+			for (let row = 0; row < rowCount; row++) {
+				for (let column = 0; column < columnCount; column++) {
+                    
+					const img = document.createElement('img');
+
+                   
+					img.src = `${photoURL}&${photoIndex}`;
+
+					img.alt = `Photo ${photoIndex}`;
+
+                    
+					gallery.appendChild(img);
+
+                    
+					photoIndex++;
+				}
+			}
+		}
+
+	
+		addPhotos();
+	</script>
+</body>
+</html>
